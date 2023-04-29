@@ -39,7 +39,7 @@ class CartScreen extends StatelessWidget {
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.white),
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/cart');
+                    Navigator.pushReplacementNamed(context, '/checkout');
                   },
                   child: Text('GO TO CHECKOUT', style: textheme.displaySmall))
             ],
@@ -54,7 +54,7 @@ class CartScreen extends StatelessWidget {
           if (state is CartLoaded) {
             return CartBody(
               textheme: textheme,
-              deliveryFee: state.cart.deliverFree,
+              deliveryFee: state.cart.deliverFee,
               state: state,
             );
           } else {
@@ -130,54 +130,7 @@ class CartBody extends StatelessWidget {
                       })),
             ],
           ),
-          Column(
-            children: [
-              const Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'SUBTOTAL',
-                          style: textheme.displaySmall,
-                        ),
-                        Text(
-                          '₦${state.cart.subtotalString}',
-                          style: textheme.displaySmall,
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'DELEVERY FEE',
-                          style: textheme.displaySmall,
-                        ),
-                        Text(
-                          '₦$deliveryFee',
-                          style: textheme.displaySmall,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              StackCard(
-                product: 'TOTAL',
-                price: "₦${deliveryFee + state.cart.subtotal}",
-              )
-            ],
-          )
+          const OrderSummary(),
         ],
       ),
     );

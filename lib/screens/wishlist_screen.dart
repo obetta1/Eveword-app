@@ -32,7 +32,9 @@ class _WishListScreenState extends State<WishListScreen> {
       appBar: const CustomAppBar(
         title: 'Wishlist',
       ),
-      bottomNavigationBar: const CustomNavBar(),
+      bottomNavigationBar: const CustomNavBar(
+        screen: WishListScreen.routeName,
+      ),
       body: Wishlist(textTheme: textTheme),
     );
   }
@@ -83,11 +85,11 @@ class _WishlistState extends State<Wishlist> {
                 childAspectRatio: 2.3,
               ),
               itemCount:
-                  state.products.length, //state.wishlist.products.length,
+                  wishlist.props.length, //state.wishlist.products.length,
               itemBuilder: (BuildContext context, int index) {
                 return ProductCard(
-                  products:
-                      state.products[index], //tate.wishlist.products[index],
+                  products: ProductModel
+                      .products[index], //tate.wishlist.products[index],
                   widthFactor: 1.0,
                   tagWidthFactor: MediaQuery.of(context).size.width * 0.5,
                   isWishlist: true,

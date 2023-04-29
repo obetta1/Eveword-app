@@ -44,7 +44,7 @@ class CartModel extends Equatable {
   }
 
   String get freeDeliver => freeDelivery(subtotal);
-  double get deliverFree => deliveryFee(subtotal);
+  double get deliverFee => deliveryFee(subtotal);
   double get total => deliveryFee(subtotal) + subtotal;
 
   @override

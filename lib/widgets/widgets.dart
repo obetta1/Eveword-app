@@ -8,3 +8,4 @@ export 'product_card_carousel.dart';
 export 'expanded_text.dart';
 export 'cart_product_card.dart';
 export 'stack_card.dart';
+export 'order_summary.dart';

@@ -5,27 +5,29 @@ abstract class HomeState extends Equatable {
 
   @override
   List<Object> get props => [];
+
+  get wishlists => null;
 }
 
 abstract class HomeActionState extends HomeState {}
 
-class HomeInitial extends HomeState {}
-
 class HomeLoadingState extends HomeState {}
 
 class HomeLoadedSuccess extends HomeState {
-  final List<ProductModel> products;
+  final ProductModel products;
 
   const HomeLoadedSuccess(this.products);
 }
 
 class AddToWishListPageState extends HomeState {
-  final List<ProductModel> wishlists;
+  @override
+  final ProductModel wishlists;
 
   const AddToWishListPageState(this.wishlists);
-}
 
-class HomeErrorState extends HomeState {}
+  @override
+  List<Object> get props => [wishlists];
+}
 
 class HomeToWishlistPageActionState extends HomeActionState {}
 

@@ -10,7 +10,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeInitial()) {
+  HomeBloc() : super(HomeLoadingState()) {
     on<HomeInitialEvent>(homeInitialEvent);
     on<AddToWishListPageEvent>(addToCartListPageEvent);
 
@@ -25,7 +25,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       HomeInitialEvent event, Emitter<HomeState> emit) async {
     emit(HomeLoadingState());
     await Future.delayed(const Duration(seconds: 1));
-    emit(HomeLoadedSuccess(wishlist));
+    //emit(HomeLoadedSuccess();
   }
 
   FutureOr<void> homeProdWishlistButtonClikedEvent(
@@ -49,16 +49,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   FutureOr<void> addToCartListPageEvent(
-      AddToWishListPageEvent event, Emitter<HomeState> emit) {
-    wishlist.add(event.products);
-    emit(AddToWishListPageState(wishlist));
+      AddToWishListPageEvent event, Emitter<HomeState> emit) async {
+    //wishlist.add(event.products);
+    //emit(AddToWishListPageState(wishlists: ProductModel(List.from(state.))));
     print('item add to wishlis');
   }
 
   FutureOr<void> removeItemFromWishListEvent(
       RemoveItemFromWishListEvent event, Emitter<HomeState> emit) {
     wishlist.remove(event.product);
-    emit(HomeLoadedSuccess(wishlist));
+    //emit(HomeLoadedSuccess(wishlist));
     print('item remove to wishlis');
   }
 }
