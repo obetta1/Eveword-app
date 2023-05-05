@@ -52,7 +52,7 @@ class CheckoutLoaded extends CheckoutState {
   @override
   final String? deliverFee;
   @override
-  final String? total;
+  final int total;
   @override
   final List<ProductModel>? products;
   @override
@@ -67,7 +67,7 @@ class CheckoutLoaded extends CheckoutState {
     this.zipecode,
     this.subtotal,
     this.deliverFee,
-    this.total,
+    this.total = 0,
     this.products,
   }) : checkout = CheckoutModel(
             fullName: fullName,

@@ -10,7 +10,7 @@ class CheckoutModel extends Equatable {
   final String? zipecode;
   final String? subtotal;
   final String? deliveryFee;
-  final String? total;
+  final int total;
   final List<ProductModel>? products;
 
   const CheckoutModel(
@@ -40,7 +40,7 @@ class CheckoutModel extends Equatable {
       ];
 
   Map<String, Object> toDocument() {
-    Map customerAdress = Map();
+    Map customerAdress = {};
 
     customerAdress['address'] = address;
     customerAdress['city'] = city;
@@ -54,7 +54,7 @@ class CheckoutModel extends Equatable {
       'products': products!.map((product) => product.name).toList(),
       'subtotal': subtotal!,
       'deliveryFee': deliveryFee!,
-      'total': total!
+      'total': total.toString()
     };
   }
 }

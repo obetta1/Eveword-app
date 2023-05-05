@@ -1,3 +1,4 @@
+import 'package:ecomerce/widgets/payment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -78,7 +79,13 @@ class CustomNavBar extends StatelessWidget {
                           context
                               .read<CheckoutBloc>()
                               .add(ComfiremCheckout(checkout: state.checkout));
-                          //Navigator.pushReplacementNamed(context, '/checkout');
+                          // Navigator.pushReplacementNamed(
+                          //     context, '/comfirm_order')
+                          PaymentPaystack(
+                                  price: state.checkout.total,
+                                  email: state.email,
+                                  ctx: context)
+                              .chargeCardandMakepayment();
                         },
                         child: Text('ODER NOW',
                             style: Theme.of(context).textTheme.displaySmall))

@@ -17,33 +17,24 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 3),
-        () => Navigator.pushNamed(context, '/home'));
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, '/home');
+    });
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Center(
-            child: Image(
-              image: AssetImage('assets/images/logo.png'),
-              height: 200,
-              width: 200,
-            ),
-          ),
-          Container(
-            color: Colors.deepOrange[900],
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 40),
-              child: Text(
-                'Eve World',
-                style: Theme.of(context)
-                    .textTheme
-                    .displayLarge!
-                    .copyWith(color: Colors.white),
+        children: const [
+          Padding(
+            padding: EdgeInsets.only(bottom: 8.0),
+            child: Center(
+              child: Image(
+                image: AssetImage('assets/images/order-logo.jpg'),
+                height: 200,
+                width: 200,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

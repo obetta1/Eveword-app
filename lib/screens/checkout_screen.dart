@@ -16,14 +16,6 @@ class CheckoutScreen extends StatelessWidget {
         builder: (_) => CheckoutScreen());
   }
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController zipcodeController = TextEditingController();
-  final TextEditingController countryController = TextEditingController();
-  final TextEditingController cityController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final TextTheme textheme = Theme.of(context).textTheme;
@@ -46,10 +38,10 @@ class CheckoutScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: Text(
                       'CUSTOMER IMFORMATION',
-                      style: textheme.headlineLarge,
+                      style: textheme.headlineMedium,
                     ),
                   ),
                   CustomInputField(
@@ -71,8 +63,8 @@ class CheckoutScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                     child: Text(
-                      'CUSTOMER IMFORMATION',
-                      style: textheme.headlineLarge,
+                      'DELIVERY IMFORMATION',
+                      style: textheme.headlineMedium,
                     ),
                   ),
                   CustomInputField(
@@ -108,10 +100,41 @@ class CheckoutScreen extends StatelessWidget {
                       },
                       label: 'Zipcode',
                       hintText: 'enter zipcode'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/payment');
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(5.0),
+                      width: MediaQuery.of(context).size.width - 10,
+                      height: 50,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "SELECT A PAYMENT METHOD",
+                              style: textheme.displaySmall!.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              '→',
+                              style: textheme.displaySmall!.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
+                    padding: const EdgeInsets.only(top: 10.0),
                     child: Text(
-                      'DELIVERY IMFORMATION',
+                      'Oder Summary',
                       style: textheme.headlineLarge,
                     ),
                   ),

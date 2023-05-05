@@ -29,7 +29,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
                 subtotal: (cartBloc.state as CartLoaded).cart.subtotalString,
                 deliverFee:
                     (cartBloc.state as CartLoaded).cart.deliverFee.toString(),
-                total: (cartBloc.state as CartLoaded).cart.total.toString())
+                total: (cartBloc.state as CartLoaded).cart.total.toInt())
             : CheckoutLoading()) {
     //we listen to the cartbloc to make sure  everything is uptodateded
     _cartSubscription = cartBloc.stream.listen((state) {

@@ -1,4 +1,5 @@
 import 'package:ecomerce/models/models.dart';
+import 'package:ecomerce/screens/order_comfirmation_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/screens.dart';
@@ -22,6 +23,10 @@ class AppRouter {
         return WishListScreen.route();
       case CheckoutScreen.routeNane:
         return CheckoutScreen.route();
+      case OrderComfirmationScreen.routeName:
+        return OrderComfirmationScreen.route();
+      case PaymentScreen.routeNane:
+        return PaymentScreen.route();
       default:
         return _errorRoute();
     }
