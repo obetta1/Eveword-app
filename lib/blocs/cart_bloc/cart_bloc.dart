@@ -11,7 +11,7 @@ part 'cart_state.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartLoading()) {
     on<CartStarted>(cartStartedEvent);
-    print('loding');
+
 
     on<CartProductAdded>(cartProductAdded);
     on<CartProductRemoved>(cartProductRemoved);

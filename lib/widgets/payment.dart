@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
 
 class PaymentPaystack {
-  final String? email;
-  final int? price;
+  final String email;
+  final int price;
   final BuildContext ctx;
 
   PaymentPaystack(

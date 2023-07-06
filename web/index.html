@@ -40,6 +40,30 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ 
+ <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCJwnBFeFNEEM46aRbastrIu42A01mvlps",
+      authDomain: "flutter-ecommerce-app-2df6e.firebaseapp.com",
+      projectId: "flutter-ecommerce-app-2df6e",
+      storageBucket: "flutter-ecommerce-app-2df6e.appspot.com",
+      messagingSenderId: "15978239614",
+      appId: "1:15978239614:web:1e82fc8520f8a86c476a2f"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

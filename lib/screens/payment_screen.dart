@@ -1,10 +1,9 @@
-import 'package:ecomerce/models/product_model.dart';
+import 'package:ecomerce/screens/order_comfirmation_screen.dart';
 import 'package:ecomerce/widgets/payment.dart';
 import 'package:ecomerce/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/cart_bloc/cart_bloc.dart';
 import '../blocs/checkout/checkout_bloc.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -39,8 +38,8 @@ class PaymentScreen extends StatelessWidget {
                     child: OutlinedButton(
                         onPressed: () {
                           PaymentPaystack(
-                                  price: state.checkout.total,
-                                  email: state.email,
+                                  price: state.total,
+                                  email: state.email!,
                                   ctx: context)
                               .chargeCardandMakepayment();
                         },

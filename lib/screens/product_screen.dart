@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/cart_bloc/cart_bloc.dart';
+import '../blocs/wishlist_bloc/wishlist_bloc.dart';
 import '../widgets/widgets.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -32,9 +33,9 @@ class ProductScreen extends StatelessWidget {
         title: product.name,
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
+        color: Colors.lightBlue,
         child: SizedBox(
-          height: 70,
+          height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -46,11 +47,18 @@ class ProductScreen extends StatelessWidget {
                     Icons.share,
                     color: Colors.white,
                   )),
-              IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/wishlist');
-                  },
-                  icon: const Icon(Icons.favorite, color: Colors.white)),
+              BlocBuilder<WishlistBloc, WishlistState>(
+                builder: (context, state) {
+                  return IconButton(
+                      onPressed: () {
+                        context
+                            .read<WishlistBloc>()
+                            .add(AddToWishlist(product));
+                        Navigator.pushReplacementNamed(context, '/wishlist');
+                      },
+                      icon: const Icon(Icons.favorite, color: Colors.white));
+                },
+              ),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   return ElevatedButton(
@@ -84,7 +92,7 @@ class ProductScreen extends StatelessWidget {
         ),
         StackCard(
           product: product.name,
-          price: product.price.toString(),
+          price: '₦${product.price}',
         ),
         const ExpandedText(
             title: 'Product Information', description: productDes),

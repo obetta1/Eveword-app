@@ -66,7 +66,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       try {
         await _checkoutRepository.addCheckout(event.checkout);
         print('done');
-        emit(CheckoutLoading());
+        emit(CheckoutLoaded());
       } catch (e) {
         print('$e');
       }

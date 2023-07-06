@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
@@ -10,23 +9,21 @@ class HeroCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        if(product == null){
+      onTap: () {
+        if (product == null) {
           Navigator.pushNamed(context, '/catalog', arguments: category);
         }
-
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(
-            horizontal: 5.0,
-            vertical: 20
-        ),
+        margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 15),
         child: ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(5.0)),
             child: Stack(
               children: <Widget>[
                 Image.network(
-                    product == null ? category!.imageUrl : product!.imageUrl, fit: BoxFit.cover, width: 1000.0),
+                    product == null ? category!.imageUrl : product!.imageUrl,
+                    fit: BoxFit.cover,
+                    width: 1000.0),
                 Positioned(
                   bottom: 0.0,
                   left: 0.0,
@@ -46,16 +43,15 @@ class HeroCarousel extends StatelessWidget {
                         vertical: 10.0, horizontal: 20.0),
                     child: Text(
                         product == null ? category!.name : product!.name,
-                        style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                            color: Colors.white
-                        )
-                    ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayLarge!
+                            .copyWith(color: Colors.white)),
                   ),
                 ),
               ],
             )),
       ),
     );
-
   }
 }

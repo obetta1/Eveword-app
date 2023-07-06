@@ -1,7 +1,9 @@
-import 'package:ecomerce/blocs/bloc/home_bloc/home_bloc.dart';
-import 'package:ecomerce/models/product_model.dart';
+import 'package:ecomerce/admin_pannel/screen/admin_home_screen.dart';
+import 'package:ecomerce/admin_pannel/screen/new_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import '../admin_pannel/screen/screens.dart';
 import '../blocs/product_bloc/product_bloc.dart';
 import '../widgets/widgets.dart';
 
@@ -22,18 +24,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('home'),
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.white,
+        title: Image.asset(
+          'assets/images/order-logo.jpg',
+          height: 50,
+        ),
+        automaticallyImplyLeading: false,
         actions: [
-          IconButton(
+          TextButton(
               onPressed: () {
-                ///homebloc.add(HomeProdWishlistButtonNavigateEvent());
+                //Get.to(NewProductScreen());
+                Get.to(AdminHomeScreen());
               },
-              icon: const Icon(Icons.favorite_border)),
-          IconButton(
-              onPressed: () {
-                //homebloc.add(HomeCartButtonNavigateEvent());
-              },
-              icon: const Icon(Icons.shopping_bag_outlined))
+              child: const Text('Admin'))
         ],
       ),
       bottomNavigationBar: const CustomNavBar(screen: routeName),

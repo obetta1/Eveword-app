@@ -1,7 +1,6 @@
-import 'package:ecomerce/config/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class CustomInputField extends StatefulWidget {
   CustomInputField({
@@ -10,11 +9,13 @@ class CustomInputField extends StatefulWidget {
     required this.hintText,
     this.suffixIcon = false,
     required this.onChange,
+    required this.validaton,
   });
   Function(String)? onChange;
   final String label;
   final String hintText;
   final bool suffixIcon;
+  final FormFieldValidator validaton;
 
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
@@ -27,6 +28,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
     final textTheme = Theme.of(context).textTheme;
     return Expanded(
       child: TextFormField(
+        validator: widget.validaton,
         onChanged: widget.onChange,
         obscureText: !passwordVisibility,
         //obscureText: !_model.passwordVisibility,
@@ -51,7 +53,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
           ),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
-              color: Color(0x00000000),
+              color: Colors.redAccent,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(8),

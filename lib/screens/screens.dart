@@ -7,3 +7,5 @@ export 'wishlist_screen.dart';
 export 'splash_screeb.dart';
 export 'checkout_screen.dart';
 export 'payment_screen.dart';
+export './auth/login_screen.dart';
+export './auth/sign_up_screen.dart';

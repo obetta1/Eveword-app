@@ -1,8 +1,8 @@
-import 'package:ecomerce/blocs/bloc/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/cart_bloc/cart_bloc.dart';
+import '../blocs/wishlist_bloc/wishlist_bloc.dart';
 import '../models/models.dart';
 
 class ProductCard extends StatelessWidget {
@@ -19,7 +19,6 @@ class ProductCard extends StatelessWidget {
   final ProductModel products;
   final bool isWishlist;
 
-  final HomeBloc homeBloc = HomeBloc();
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -30,7 +29,7 @@ class ProductCard extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width / widthFactor,
-            height: 150,
+            height: 180,
             child: Image.network(
               products.imageUrl,
               fit: BoxFit.cover,
@@ -49,7 +48,6 @@ class ProductCard extends StatelessWidget {
             left: 5,
             right: tagWidthFactor + 5,
             child: Container(
-              //margin: EdgeInsets.symmetric(horizontal: 20.0),
               width: 5,
               height: 40,
               decoration: const BoxDecoration(color: Colors.black),
@@ -57,15 +55,17 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        products.name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Colors.white),
+                      Expanded(
+                        child: Text(
+                          products.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.white),
+                        ),
                       ),
                       Text(
-                        products.price.toString(),
+                        '₦${products.price}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -86,9 +86,6 @@ class ProductCard extends StatelessWidget {
                                   context
                                       .read<CartBloc>()
                                       .add(CartProductAdded(products));
-
-                                  // homeBloc.add(AddToWishListPageEvent(
-                                  //     products: products));
                                 },
                                 icon: const Icon(
                                   Icons.add_circle_rounded,
@@ -100,15 +97,20 @@ class ProductCard extends StatelessWidget {
                         },
                       )),
                   isWishlist
-                      ? IconButton(
-                          onPressed: () {
-                            homeBloc.add(
-                                RemoveItemFromWishListEvent(product: products));
+                      ? BlocBuilder<WishlistBloc, WishlistState>(
+                          builder: (context, state) {
+                            return IconButton(
+                                onPressed: () {
+                                  context
+                                      .read<WishlistBloc>()
+                                      .add(RemoveFreomWishlist(products));
+                                },
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: Colors.white,
+                                ));
                           },
-                          icon: const Icon(
-                            Icons.delete,
-                            color: Colors.white,
-                          ))
+                        )
                       : const SizedBox(),
                 ],
               ),

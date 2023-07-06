@@ -1,4 +1,7 @@
+import 'package:ecomerce/admin_pannel/screen/new_product_screen.dart';
+import 'package:ecomerce/admin_pannel/screen/order_screen.dart';
 import 'package:ecomerce/models/models.dart';
+import 'package:ecomerce/screens/auth/sign_up_screen.dart';
 import 'package:ecomerce/screens/order_comfirmation_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +30,12 @@ class AppRouter {
         return OrderComfirmationScreen.route();
       case PaymentScreen.routeNane:
         return PaymentScreen.route();
+      case NewProductScreen.routeName:
+        return NewProductScreen.route();
+      case OrderScreen.routeName:
+        return OrderScreen.route();
+      case SignUpScreen.routeName:
+        return SignUpScreen.route();
       default:
         return _errorRoute();
     }

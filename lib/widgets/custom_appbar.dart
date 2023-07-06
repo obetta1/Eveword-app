@@ -1,39 +1,45 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget  with PreferredSizeWidget{
-  const CustomAppBar({Key? key, required this.title,  this.showIcon = true,}) : super(key: key);
+class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+  const CustomAppBar({
+    Key? key,
+    required this.title,
+    this.showIcon = true,
+  }) : super(key: key);
 
   final String title;
- final bool showIcon;
+  final bool showIcon;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.lightBlue.shade400,
+
       elevation: 0,
       title: Container(
-        color: Colors.black,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 20
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Text(
+          title,
+          style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              fontFamily: 'Avenir'),
         ),
-        child: Text(title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-          fontFamily: 'Avenir'
-        ),),
       ),
       iconTheme: const IconThemeData(color: Colors.black),
-      actions: [IconButton(onPressed: (){
-        Navigator.pushNamed(context, '/wishlist');
-      }, icon:  Icon( showIcon ? Icons.favorite : null))],
-
+      actions: [
+        IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/wishlist');
+            },
+            icon: Icon(showIcon ? Icons.favorite : null))
+      ],
     );
   }
 
   @override
   // this is the size of the appbar
-  Size get preferredSize => const Size.fromHeight(50.0);
+  Size get preferredSize => const Size.fromHeight(40.0);
 }

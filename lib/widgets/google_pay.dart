@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:ecomerce/models/product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pay/pay.dart';
 
 class GooglePay extends StatelessWidget {

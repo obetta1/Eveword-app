@@ -25,9 +25,9 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.black,
+      color: Colors.lightBlue.shade400,
       child: SizedBox(
-        height: 70,
+        height: 50,
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: _selectNaveBar(context, screen)),
@@ -47,12 +47,12 @@ class CustomNavBar extends StatelessWidget {
           )),
       IconButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/cart');
+            Navigator.pushNamed(context, '/cart');
           },
           icon: const Icon(Icons.shopping_cart, color: Colors.white)),
       IconButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/user');
+            Navigator.pushNamed(context, '/user');
           },
           icon: const Icon(Icons.person, color: Colors.white))
     ];
@@ -60,43 +60,36 @@ class CustomNavBar extends StatelessWidget {
 
   List<Widget> _buidCheckoutNavBar(BuildContext context, String screen) {
     return [
-      BottomAppBar(
-        color: Colors.black,
-        child: Container(
-          height: 70,
-          child: BlocBuilder<CheckoutBloc, CheckoutState>(
-            builder: (context, state) {
-              if (state is CheckoutLoading) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (state is CheckoutLoaded) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white),
-                        onPressed: () {
-                          context
-                              .read<CheckoutBloc>()
-                              .add(ComfiremCheckout(checkout: state.checkout));
-                          // Navigator.pushReplacementNamed(
-                          //     context, '/comfirm_order')
-                          PaymentPaystack(
-                                  price: state.checkout.total,
-                                  email: state.email,
-                                  ctx: context)
-                              .chargeCardandMakepayment();
-                        },
-                        child: Text('ODER NOW',
-                            style: Theme.of(context).textTheme.displaySmall))
-                  ],
-                );
-              } else {
-                return const Text('something went wrong');
-              }
-            },
-          ),
-        ),
+      BlocBuilder<CheckoutBloc, CheckoutState>(
+        builder: (context, state) {
+          if (state is CheckoutLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is CheckoutLoaded) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                    onPressed: () {
+                      context
+                          .read<CheckoutBloc>()
+                          .add(ComfiremCheckout(checkout: state.checkout));
+                      Navigator.pushReplacementNamed(context, '/comfirm_order');
+                      PaymentPaystack(
+                              price: state.total,
+                              email: state.email!,
+                              ctx: context)
+                          .chargeCardandMakepayment();
+                    },
+                    child: Text('ODER NOW',
+                        style: Theme.of(context).textTheme.displaySmall))
+              ],
+            );
+          } else {
+            return const Text('something went wrong');
+          }
+        },
       ),
     ];
   }

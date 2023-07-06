@@ -47,5 +47,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>this is need to uplaod image</string>
+	<key>NSCameraUsageDescription</key>
+	<string>used for uploading image</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>used for speach to text convertion</string>
 </dict>
 </plist>
