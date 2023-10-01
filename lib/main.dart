@@ -13,12 +13,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import 'blocs/product_bloc/product_bloc.dart';
+import 'firebase_options.dart';
 import 'repository/repository.dart';
 
 Future<void> main() async {
   await WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp().then((value) => Get.put(AuthController()));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then((value) => Get.put(AuthController()));
   await Hive.initFlutter();
   Hive.registerAdapter(ProductModelAdapter());
   runApp(const MyApp());
@@ -59,7 +63,6 @@ class MyApp extends StatelessWidget {
                     ..add(WishlistStarted()))
         ],
         child: GetMaterialApp(
-
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: themeData(),

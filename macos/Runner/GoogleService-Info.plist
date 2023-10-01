@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>15978239614-9ktp1n3rjhrs0a82gj8o4se357ge7epf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.15978239614-9ktp1n3rjhrs0a82gj8o4se357ge7epf</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>15978239614-853e5fkd6ag2uo1m1jihkfs87c1n6ieo.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCK0xsrZ32O0zYtIL17ZOiLpXLhQeBJhrI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>15978239614</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ben.ecomerce</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-ecommerce-app-2df6e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-ecommerce-app-2df6e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:15978239614:ios:168ce533ac67a5ea476a2f</string>
+</dict>
+</plist>

@@ -1,4 +1,3 @@
-import 'package:ecomerce/screens/order_comfirmation_screen.dart';
 import 'package:ecomerce/widgets/payment.dart';
 import 'package:ecomerce/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -48,8 +47,7 @@ class PaymentScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 24),
                         )),
                   ),
-                  GooglePay(
-                      total: state.total.toString(), products: state.products!)
+                  //GooglePay(total: state.total.toString(), products: state.products!)
                 ]);
           } else {
             return const Text('Error has occour');

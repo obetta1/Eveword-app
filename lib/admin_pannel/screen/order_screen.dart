@@ -1,5 +1,4 @@
 import 'package:ecomerce/admin_pannel/controller/order_controller.dart';
-import 'package:ecomerce/admin_pannel/model/orders.dart';
 import 'package:ecomerce/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,10 +18,11 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List orders = [orderController.orders, orderController.pendingOders];
+    final List orders =
+        [orderController.orders, orderController.pendingOders].toList();
 
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: 'orders',
       ),
       body: SingleChildScrollView(
@@ -65,7 +65,8 @@ class OrderScreen extends StatelessWidget {
                   )),
               Expanded(
                 child: Obx(() => ListView.builder(
-                    itemCount: orders[orderController.index.value].lenght,
+                    itemCount:
+                        orders.elementAt(orderController.index.value).length,
                     itemBuilder: (BuildContext context, int index) {
                       //print('${orderController.orders[index]}');
                       return OrderCard(

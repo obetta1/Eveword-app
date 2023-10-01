@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "15978239614-4lvdrm0s8u1itj4flljo6pgbn33dd8f8.apps.googleusercontent.com",
+          "client_id": "15978239614-853e5fkd6ag2uo1m1jihkfs87c1n6ieo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ben.ecomerce",
+            "certificate_hash": "88b93bec8abf7028a7659057ce9e9451f8b10235"
+          }
+        },
+        {
+          "client_id": "15978239614-6gs5qb6h4m7sls78kboac1t8him6r8i7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

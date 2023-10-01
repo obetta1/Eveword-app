@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
       body: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
           print('login screen state=====${state.status}');
-          // if(state is SignUpEvent)
+
           return Column(
             children: [
               // appbar container used to decorate the appbar
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: hSize * 0.16,
+                      height: hSize * 0.026,
                     ),
                     CircleAvatar(
                       backgroundColor: Colors.white,
@@ -63,6 +63,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 20,
               ),
               //email text input field
               AutImputField(
@@ -91,10 +94,9 @@ class LoginScreen extends StatelessWidget {
                         context.read<AuthBloc>().add(LoginUserEvent(
                             email: emailController.text,
                             password: passwordController.text))
-                      }else{
-                          showSnackbar('all the field are required', '')
-
-                    }
+                      }
+                    else
+                      {showSnackbar('all the field are required', '')}
                   },
                   child: Container(
                     alignment: Alignment.center,

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import '../admin_pannel/screen/screens.dart';
 import '../blocs/auth/auth_bloc.dart';
-import '../blocs/auth/auth_bloc.dart';
 import '../widgets/widgets.dart';
 import 'screens.dart';
 
@@ -52,7 +51,9 @@ class UserScreen extends StatelessWidget {
                       height: hSize * 0.05,
                     ),
                     ElevatedButton.icon(
-                        onPressed: () {Get.to(UpdateProfileScreen());},
+                        onPressed: () {
+                          Get.to(UpdateProfileScreen());
+                        },
                         icon: const Icon(Icons.edit),
                         label: const Text('edith profile')),
                     CircleAvatar(
@@ -84,8 +85,8 @@ class UserScreen extends StatelessWidget {
                 hSize: hSize,
                 onpressed: () {
                   auth.logoutUser();
-                  // context.read<AuthBloc>().add(LogoutUserEvent());
-                  // Get.to(const LoginScreen());
+                  context.read<AuthBloc>().add(LogoutUserEvent());
+                  Get.to(const LoginScreen());
                 },
               ),
             ],

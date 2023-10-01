@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.2 <3.0.0"
+  sdk: ">=3.0.3 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -52,7 +52,7 @@ dependencies:
   hive_flutter: ^1.1.0
   image_picker: ^0.8.7+4
   intl: ^0.17.0
-  pay: ^1.1.1
+
 
 dev_dependencies:
   build_runner: ^2.3.3
