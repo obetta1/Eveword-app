@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
-          print('login screen state=====${state.status}');
+          debugPrint('login screen state=====${state.status}');
 
           return Column(
             children: [
