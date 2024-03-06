@@ -132,13 +132,11 @@ class CartBody extends StatelessWidget {
                         .length,
                     itemBuilder: (context, index) {
                       order.newOrder.update(
-                          'productId',
-                          (_) => state.cart.products[index].id,
+                          'productId', (_) => state.cart.products[index].id,
                           ifAbsent: () => state.cart.products[index].id);
                       order.newOrder.update(
                           'id', (_) => state.cart.products[index].id,
                           ifAbsent: () => '12');
-
 
                       return CatProductCard(
                         products: state.cart
