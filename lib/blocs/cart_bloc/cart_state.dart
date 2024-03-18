@@ -5,7 +5,7 @@ abstract class CartState extends Equatable {
 
   @override
   List<Object> get props => [];
-
+//so the
   get cart => null;
 }
 
