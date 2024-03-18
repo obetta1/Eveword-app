@@ -12,7 +12,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartLoading()) {
     on<CartStarted>(cartStartedEvent);
 
-
     on<CartProductAdded>(cartProductAdded);
     on<CartProductRemoved>(cartProductRemoved);
   }
@@ -27,6 +26,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
   }
 
+  //this is used to add cart to an event
   FutureOr<void> cartProductAdded(
       CartProductAdded event, Emitter<CartState> emit) {
     if (state is CartLoaded) {
