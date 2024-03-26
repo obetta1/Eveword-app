@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 
 class OrderController extends GetxController {
   final DatabaseService database = DatabaseService();
-
-  var orders = <Orders>[].obs;
+  var newOrder = {}.obs;
   var pendingOders = <Orders>[].obs;
+  var orders = <Orders>[].obs;
+
   var index = 1.obs;
 
-  var newOrder = {}.obs;
   @override
   void onInit() {
     orders.bindStream(database.getOrders());
@@ -21,7 +21,7 @@ class OrderController extends GetxController {
     database.updateOrder(orders, field, newValue);
   }
 
-  void addOrderTofirebase(Orders orders){
+  void addOrderTofirebase(Orders orders) {
     database.addOrders(orders);
   }
 }
